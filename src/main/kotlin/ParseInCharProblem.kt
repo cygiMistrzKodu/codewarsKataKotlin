@@ -4,8 +4,7 @@ class ParseIntCharProblem {
 
     fun getAge(yearsOld: String): Int {
 
-        // your code here
-     return 9
+        return yearsOld[0].digitToInt()
     }
 
 }
