@@ -1,10 +1,5 @@
-package basic
+fun include(arr: IntArray, item: Int): Boolean {
 
-class ParseIntCharProblem {
-
-    fun getAge(yearsOld: String): Int {
-
-        return yearsOld[0].digitToInt()
-    }
+    return item in arr
 
 }
