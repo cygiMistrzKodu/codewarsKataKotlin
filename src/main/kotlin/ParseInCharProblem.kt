@@ -1,4 +1,4 @@
 fun getAscii(c: Char): Int {
 
-    return 0;
+    return  c.code
 }
