@@ -1,5 +1,4 @@
-fun include(arr: IntArray, item: Int): Boolean {
+fun getAscii(c: Char): Int {
 
-    return item in arr
-
+    return 0;
 }

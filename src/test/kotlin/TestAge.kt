@@ -1,11 +1,11 @@
 import kotlin.test.assertEquals
-
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 
 class TestExample {
     @Test
-    fun `Basic Tests`() {
-        assertEquals(true, include(intArrayOf(1,2,3,4), 2))
-        assertEquals(false, include(intArrayOf(1,2,4,5), 3))
+    fun `Basic tests`() {
+        assertEquals(65, getAscii('A'))
+        assertEquals(32, getAscii(' '))
+        assertEquals(33, getAscii('!'))
     }
 }
