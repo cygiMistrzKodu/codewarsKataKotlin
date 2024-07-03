@@ -1,1 +1,1 @@
-val STRANGE_STRING:String = ""
+val STRANGE_STRING:String = "İ"
