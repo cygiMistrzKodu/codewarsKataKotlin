@@ -1,1 +1,5 @@
-val STRANGE_STRING:String = "İ"
+package going
+
+fun movie(card:Int, ticket:Int, perc:Double):Int {
+    return 0;
+}

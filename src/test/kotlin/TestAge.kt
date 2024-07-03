@@ -1,18 +1,18 @@
-import kotlin.test.assertTrue
+package going
+
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class LengthTest {
+class MovieTest {
 
+    private fun testing(actual:Int, expected:Int) {
+        assertEquals(expected, actual)
+    }
     @Test
-    fun testStringLength() {
-        val strangeString = STRANGE_STRING
-        val upAndDown = strangeString.uppercase().lowercase()
-        val origLen = strangeString.length
-        val upDownLen = upAndDown.length
+    fun test1() {
+        println("Fixed Tests: movie")
+        testing(movie(500, 15, 0.9), 43)
+        testing(movie(100, 10, 0.95), 24)
 
-        val message = "String length should grow"
-        val growMessage = "$message, actual length: $origLen ⇒ $upDownLen"
-
-        assertTrue(upDownLen > origLen, growMessage)
     }
 }
