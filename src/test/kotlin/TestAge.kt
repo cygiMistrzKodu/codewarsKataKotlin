@@ -1,13 +1,18 @@
-import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.jupiter.api.Test
 
-class TestExample {
+class LengthTest {
+
     @Test
-    fun testFixed() {
-        assertEquals(22, twiceAsOld(36,7))
-        assertEquals(5, twiceAsOld(55,30))
-        assertEquals(0, twiceAsOld(42,21))
-        assertEquals(20, twiceAsOld(22,1))
-        assertEquals(29, twiceAsOld(29,0))
+    fun testStringLength() {
+        val strangeString = STRANGE_STRING
+        val upAndDown = strangeString.uppercase().lowercase()
+        val origLen = strangeString.length
+        val upDownLen = upAndDown.length
+
+        val message = "String length should grow"
+        val growMessage = "$message, actual length: $origLen ⇒ $upDownLen"
+
+        assertTrue(upDownLen > origLen, growMessage)
     }
-}  
+}
