@@ -1,11 +1,15 @@
-import kotlin.test.assertEquals
+package catmouse
+
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class TestExample {
+class CatMouseTests {
+
     @Test
-    fun `Basic tests`() {
-        assertEquals(65, getAscii('A'))
-        assertEquals(32, getAscii(' '))
-        assertEquals(33, getAscii('!'))
+    fun basicTests() {
+        assertEquals("Escaped!", catMouse("C....m"))
+        assertEquals("Caught!", catMouse("C..m"))
+        assertEquals("Escaped!", catMouse("C.....m"))
+        assertEquals("Caught!", catMouse("C.m"))
     }
 }

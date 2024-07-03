@@ -1,4 +1,5 @@
-fun getAscii(c: Char): Int {
+package catmouse
 
-    return  c.code
+fun catMouse(s: String): String {
+    return "";
 }
