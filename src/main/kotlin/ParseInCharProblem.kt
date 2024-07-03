@@ -1,8 +1,3 @@
-package catmouse
-
-fun catMouse(s: String): String {
-
-    val dotCount = s.count { c: Char -> c == '.' }
-
-    return if (dotCount <= 3) "Caught!" else "Escaped!"
+fun twiceAsOld(dadYearsOld: Int, sonYearsOld: Int): Int {
+    return 0
 }
