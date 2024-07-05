@@ -1,4 +1,4 @@
-fun reverseLetter(str: String): String {
+fun isTuringEquation(s: String): Boolean {
 
-    return str.filter { a -> a.isLetter() }.reversed()
+    return false;
 }

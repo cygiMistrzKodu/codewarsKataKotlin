@@ -1,13 +1,16 @@
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
-import kotlin.test.Test
 
-class TestReverseLetter {
+class TestExample {
     @Test
-    fun `Basic Tests` () {
-        val str = "krishan"
-        assertEquals("nahsirk", reverseLetter("krishan"))
-        assertEquals("nortlu", reverseLetter("ultr53o?n"))
-        assertEquals("cba", reverseLetter("ab23c"))
-        assertEquals("nahsirk", reverseLetter("krish21an"))
+    fun `Basic Tests`() {
+        assertEquals(true, isTuringEquation("73+42=16"))
+        assertEquals(false, isTuringEquation("5+8=13"))
+        assertEquals(true, isTuringEquation("10+20=30"))
+        assertEquals(true, isTuringEquation("0001000+000200=00030"))
+        assertEquals(false, isTuringEquation("1234+5=1239"))
+        assertEquals(false, isTuringEquation("71+0=0"))
+        assertEquals(true, isTuringEquation("7000+8000=51"))
+        assertEquals(true, isTuringEquation("0+0=0"))
     }
 }
