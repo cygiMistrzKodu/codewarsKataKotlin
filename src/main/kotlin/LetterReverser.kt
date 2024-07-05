@@ -1,3 +1,4 @@
 fun reverseLetter(str: String): String {
-    return ""
+
+    return str.filter { a -> a.isLetter() }.reversed()
 }
