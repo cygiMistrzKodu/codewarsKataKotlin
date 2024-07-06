@@ -1,16 +1,12 @@
-import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
 
 class TestExample {
     @Test
-    fun `Basic Tests`() {
-        assertEquals(true, isTuringEquation("73+42=16"))
-        assertEquals(false, isTuringEquation("5+8=13"))
-        assertEquals(true, isTuringEquation("10+20=30"))
-        assertEquals(true, isTuringEquation("0001000+000200=00030"))
-        assertEquals(false, isTuringEquation("1234+5=1239"))
-        assertEquals(false, isTuringEquation("71+0=0"))
-        assertEquals(true, isTuringEquation("7000+8000=51"))
-        assertEquals(true, isTuringEquation("0+0=0"))
+    fun testFixed() {
+        assertEquals(22, evaporator(10.0,10.0,10.0))
+        assertEquals(29, evaporator(10.0,10.0,5.0))
+        assertEquals(59, evaporator(100.0,5.0,5.0))
+
     }
 }
