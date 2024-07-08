@@ -1,19 +1,20 @@
-package countdig
+package allinclusive
 
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class CountDigTest {
-    private fun testing(actual: Int, expected: Int) {
-        assertEquals(expected.toLong(), actual.toLong())
+class rotationsMainTest {
+    private fun testing(actual:Boolean, expected:Boolean) {
+        assertEquals(expected, actual)
     }
-
     @Test
     fun test() {
-        println("Fixed Tests nbDig")
-        testing(nbDig(5750, 0), 4700)
-        testing(nbDig(11011, 2), 9481)
+        println("Fixed Tests containAllRots")
+        var a = arrayListOf("bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs")
+        testing(containAllRots("bsjq", a), true)
+        a = arrayListOf("TzYxlgfnhf", "yqVAuoLjMLy", "BhRXjYA", "YABhRXj", "hRXjYAB", "jYABhRX", "XjYABhR", "ABhRXjY")
+        testing(containAllRots("XjYABhR", a), false)
 
     }
 }
