@@ -1,1 +1,5 @@
-fun countRedBeads(nBlue: Int): Int = if (nBlue < 2) 0 else 2* nBlue - 2
+package countdig
+
+fun nbDig(n:Int, d:Int):Int {
+    return 0
+}
