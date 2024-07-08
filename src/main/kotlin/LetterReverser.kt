@@ -1,1 +1,1 @@
-fun countRedBeads(nBlue: Int): Int = nBlue
+fun countRedBeads(nBlue: Int): Int = if (nBlue < 2) 0 else 2* nBlue - 2
