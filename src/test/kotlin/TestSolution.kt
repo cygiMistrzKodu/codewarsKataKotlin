@@ -1,17 +1,14 @@
-package hero
-
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
-class IntSqRootTest {
+class TestReplace {
+
     @Test
-    fun test0() {
-        println("Fixed Tests")
-        assertEquals(4, intRac(25, 1));
-        assertEquals(3, intRac(125348, 300));
-        assertEquals(5, intRac(16000, 400));
-        assertEquals(16, intRac(11409767, 1));
-
+    fun testFixed() {
+        assertEquals(0, countRedBeads(0));
+        assertEquals(0, countRedBeads(1));
+        assertEquals(4, countRedBeads(3));
+        assertEquals(8, countRedBeads(5));
     }
 
 }
