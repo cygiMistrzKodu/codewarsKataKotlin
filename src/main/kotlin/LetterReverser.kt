@@ -1,6 +1,7 @@
-package allinclusive
+object FixStringCase {
 
-fun containAllRots(strng: String, arr: ArrayList<String>): Boolean {
+    fun solve(s: String): String {
+        return TODO("your code here")
+    }
 
-    return arr.containsAll(List(strng.length) { (strng.drop(it) + strng.take(it)) })
 }

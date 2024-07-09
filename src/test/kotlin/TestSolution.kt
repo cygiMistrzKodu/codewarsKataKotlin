@@ -1,28 +1,15 @@
-package allinclusive
+package solution
 
-
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
-class rotationsMainTest {
-    private fun testing(actual:Boolean, expected:Boolean) {
-        assertEquals(expected, actual)
-    }
+class FixStringCaseSolutionTest {
     @Test
-    fun test() {
-        println("Fixed Tests containAllRots")
-        var a = arrayListOf("bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs")
-        testing(containAllRots("bsjq", a), true)
-        a = arrayListOf("TzYxlgfnhf", "yqVAuoLjMLy", "BhRXjYA", "YABhRXj", "hRXjYAB", "jYABhRX", "XjYABhR", "ABhRXjY")
-        testing(containAllRots("XjYABhR", a), false)
-
-        a = arrayListOf("hQmSQJA", "QJAhQmS", "QmSQJAh", "yUgUXoQE", "AhQmSQJ", "mSQJAhQ", "SQJAhQm", "JAhQmSQ")
-        testing(containAllRots("QJAhQmS", a), true)
-
-        a = arrayListOf("ivBlGleuyNY", "NYivBlGleuy", "leuyNYivBlG", "UpaPPTEBk", "yNYivBlGleu", "GleuyNYivBl", "SZDzwjvyWq", "YivBlGleuyN", "uyNYivBlGle", "BlGleuyNYiv", "euyNYivBlGl", "vBlGleuyNYi", "lGleuyNYivB")
-        testing(containAllRots("ivBlGleuyNY", a), true)
-
+    fun BasicTests() {
+        assertEquals("code", FixStringCase.solve("code"))
+        assertEquals("CODE", FixStringCase.solve("CODe"))
+        assertEquals("code", FixStringCase.solve("COde"))
+        assertEquals("code", FixStringCase.solve("Code"))
+        assertEquals("", FixStringCase.solve(""))
     }
 }
-
-
