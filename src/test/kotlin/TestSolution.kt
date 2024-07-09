@@ -16,5 +16,13 @@ class rotationsMainTest {
         a = arrayListOf("TzYxlgfnhf", "yqVAuoLjMLy", "BhRXjYA", "YABhRXj", "hRXjYAB", "jYABhRX", "XjYABhR", "ABhRXjY")
         testing(containAllRots("XjYABhR", a), false)
 
+        a = arrayListOf("hQmSQJA", "QJAhQmS", "QmSQJAh", "yUgUXoQE", "AhQmSQJ", "mSQJAhQ", "SQJAhQm", "JAhQmSQ")
+        testing(containAllRots("QJAhQmS", a), true)
+
+        a = arrayListOf("ivBlGleuyNY", "NYivBlGleuy", "leuyNYivBlG", "UpaPPTEBk", "yNYivBlGleu", "GleuyNYivBl", "SZDzwjvyWq", "YivBlGleuyN", "uyNYivBlGle", "BlGleuyNYiv", "euyNYivBlGl", "vBlGleuyNYi", "lGleuyNYivB")
+        testing(containAllRots("ivBlGleuyNY", a), true)
+
     }
 }
+
+
