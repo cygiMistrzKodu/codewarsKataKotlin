@@ -14,4 +14,9 @@ class TestExample {
     fun test32By9() {
         assertEquals("3840x1080", findScreenHeight(3840,"32:9"))
     }
+
+    @Test
+    fun test4By3WithRealNumbers() {
+        assertEquals("1734x1300", findScreenHeight(1734,"4:3"))
+    }
 }
