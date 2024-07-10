@@ -1,22 +1,14 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class TestExample {
-    @Test
-    fun test4By3() {
-        assertEquals("1024x768", findScreenHeight(1024,"4:3"))
-    }
-    @Test
-    fun test16By9() {
-        assertEquals("1280x720", findScreenHeight(1280,"16:9"))
-    }
-    @Test
-    fun test32By9() {
-        assertEquals("3840x1080", findScreenHeight(3840,"32:9"))
-    }
+class GeometricSequenceTest {
+
+    private fun test(actual: String, expected: String) = assertEquals(expected, actual)
 
     @Test
-    fun test4By3WithRealNumbers() {
-        assertEquals("1734x1300", findScreenHeight(1734,"4:3"))
+    fun exampleTests() {
+        test(geometricSequenceElements(2, 3, 5), "2, 6, 18, 54, 162")
+        test(geometricSequenceElements(2, 2, 10), "2, 4, 8, 16, 32, 64, 128, 256, 512, 1024")
+        test(geometricSequenceElements(1, -2, 10), "1, -2, 4, -8, 16, -32, 64, -128, 256, -512")
     }
 }
