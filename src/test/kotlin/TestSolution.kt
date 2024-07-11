@@ -1,11 +1,26 @@
+package fizzBuzzCuckooClock
+
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
 
-class TestExample {
+class Tests {
     @Test
-    fun testFixed() {
-        assertEquals("Get Out Now!", outed(mapOf("tim" to 0, "jim" to 2, "randy" to 0, "sandy" to 7, "andy" to 0, "katie" to 5, "laura" to 1, "saajid" to 2, "alex" to 3, "john" to 2, "mr" to 0), "laura"))
-        assertEquals("Nice Work Champ!", outed(mapOf("tim" to 1, "jim" to 3, "randy" to 9, "sandy" to 6, "andy" to 7, "katie" to 6, "laura" to 9, "saajid" to 9, "alex" to 9, "john" to 9, "mr" to 8), "katie"))
-        assertEquals("Get Out Now!", outed(mapOf("tim" to 2, "jim" to 4, "randy" to 0, "sandy" to 5, "andy" to 8, "katie" to 6, "laura" to 2, "saajid" to 2, "alex" to 3, "john" to 2, "mr" to 8), "john"))
+    fun someBasicTimesTests () {
+        println("Testing with time 13:34")
+        assertEquals("tick", fizzBuzzCuckooClock("13:34"))
+        println("Testing with time 21:00")
+        assertEquals("Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo", fizzBuzzCuckooClock("21:00"))
+        println("Testing with time 11:15")
+        assertEquals("Fizz Buzz", fizzBuzzCuckooClock("11:15"))
+        println("Testing with time 03:03")
+        assertEquals("Fizz", fizzBuzzCuckooClock("03:03"))
+        println("Testing with time 14:30")
+        assertEquals("Cuckoo", fizzBuzzCuckooClock("14:30"))
+        println("Testing with time 08:55")
+        assertEquals("Buzz", fizzBuzzCuckooClock("08:55"))
+        println("Testing with time 00:00")
+        assertEquals("Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo", fizzBuzzCuckooClock("00:00"))
+        println("Testing with time 12:00")
+        assertEquals("Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo", fizzBuzzCuckooClock("12:00"))
     }
 }
