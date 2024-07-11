@@ -1,14 +1,11 @@
-import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
 
-class GeometricSequenceTest {
-
-    private fun test(actual: String, expected: String) = assertEquals(expected, actual)
-
+class TestExample {
     @Test
-    fun exampleTests() {
-        test(geometricSequenceElements(2, 3, 5), "2, 6, 18, 54, 162")
-        test(geometricSequenceElements(2, 2, 10), "2, 4, 8, 16, 32, 64, 128, 256, 512, 1024")
-        test(geometricSequenceElements(1, -2, 10), "1, -2, 4, -8, 16, -32, 64, -128, 256, -512")
+    fun testFixed() {
+        assertEquals("Get Out Now!", outed(mapOf("tim" to 0, "jim" to 2, "randy" to 0, "sandy" to 7, "andy" to 0, "katie" to 5, "laura" to 1, "saajid" to 2, "alex" to 3, "john" to 2, "mr" to 0), "laura"))
+        assertEquals("Nice Work Champ!", outed(mapOf("tim" to 1, "jim" to 3, "randy" to 9, "sandy" to 6, "andy" to 7, "katie" to 6, "laura" to 9, "saajid" to 9, "alex" to 9, "john" to 9, "mr" to 8), "katie"))
+        assertEquals("Get Out Now!", outed(mapOf("tim" to 2, "jim" to 4, "randy" to 0, "sandy" to 5, "andy" to 8, "katie" to 6, "laura" to 2, "saajid" to 2, "alex" to 3, "john" to 2, "mr" to 8), "john"))
     }
 }
