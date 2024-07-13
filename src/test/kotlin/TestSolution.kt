@@ -13,5 +13,6 @@ class TestExample {
         assertEquals(1, babyCount("b a b y"))
         assertEquals(null, babyCount(""))
         assertEquals(null, babyCount("none her"))
+        assertEquals(7, babyCount("vbawo gnbcvavG yaBb fnaa bsGdyaSB aBkG yBASby pGnytAv bsymbbyv nmvJya bmaw sSyisk AynfxBb yyAA Sari aNaa"))
     }
 }
