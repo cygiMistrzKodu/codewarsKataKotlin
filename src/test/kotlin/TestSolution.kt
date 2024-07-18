@@ -1,36 +1,13 @@
-package besttravel
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
-
-class SumOfKTest {
-    //----------------
+class BasicTests {
     @Test
-    fun basicTests1() {
-        println("****** Basic Tests small numbers******")
-        var ts = listOf(50, 55, 56, 57, 58)
-        var n = chooseBestSum(163, 3, ts)
-        assertEquals(163, n.toLong())
-        ts = listOf(50)
-        var m = chooseBestSum(163, 3, ts)
-        assertEquals(-1, m)
-
+    fun basicTests() {
+        assertEquals(listOf(15), beggars(listOf(1,2,3,4,5), 1))
+        assertEquals(listOf(9,6), beggars(listOf(1,2,3,4,5), 2))
+        assertEquals(listOf(5,7,3), beggars(listOf(1,2,3,4,5), 3))
+        assertEquals(listOf(1,2,3,4,5,0), beggars(listOf(1,2,3,4,5), 6))
+        assertEquals(listOf(), beggars(listOf(1,2,3,4,5), 0))
     }
-
-    @Test
-    fun basicTestsAdditional() {
-        println("****** Basic Tests my******")
-        var ts = listOf(91, 74, 73, 85, 73, 81, 87)
-        var n = chooseBestSum(331, 4, ts)
-        assertEquals(331, n.toLong())
-    }
-
-    @Test
-    fun basicTestsWhenShouldBeMinusOne() {
-        println("****** when should be -1 ******")
-        var ts = listOf(91, 74, 73, 85, 73, 81, 87)
-        var n = chooseBestSum(331, 5, ts)
-        assertEquals(-1, n.toLong())
-    }
-
 }
