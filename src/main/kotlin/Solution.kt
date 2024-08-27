@@ -1,22 +1,36 @@
-fun beggars(values: List<Int>, n: Int): List<Int> {
+package solution
 
-    val beggarsSum = MutableList(n) { 0 }
+object BuyCar {
+    fun nbMonths(
+        startPriceOld: Int,
+        startPriceNew: Int,
+        savingperMonth: Int,
+        percentLossByMonth: Double
+    ): Pair<Int, Int> {
 
-    if (beggarsSum.isEmpty()) {
-        return emptyList()
-    }
+        var oldCarWorth = startPriceOld.toDouble()
+        var newCarWorth = startPriceNew.toDouble()
+        var cumulativeLossPerMonthPercent = percentLossByMonth
+        var totalSavingPerMonth = 0
 
-    var beggarIndex = 0
-    values.forEach {
+        var cashDifference = oldCarWorth - newCarWorth
+        var months = 0
 
-        if (beggarIndex >= beggarsSum.count()) {
-            beggarIndex = 0
+        while (cashDifference < 0) {
+            months++
+            totalSavingPerMonth += savingperMonth
+
+            if (months % 2 == 0) {
+                cumulativeLossPerMonthPercent += 0.5
+            }
+
+            oldCarWorth = (oldCarWorth * (100 - cumulativeLossPerMonthPercent) / 100)
+            newCarWorth = newCarWorth * (100 - cumulativeLossPerMonthPercent) / 100
+
+            cashDifference = (oldCarWorth - newCarWorth) + totalSavingPerMonth
+
+
         }
-
-        beggarsSum[beggarIndex] += it
-        beggarIndex++
-
+        return Pair(months, Math.round(cashDifference).toInt())
     }
-
-    return beggarsSum
 }
