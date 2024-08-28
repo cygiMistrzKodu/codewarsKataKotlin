@@ -1,23 +1,20 @@
 package solution
 
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class  BuyCarTest {
-
-    private fun testing(startPriceOld: Int, startPriceNew: Int, savingperMonth: Int, percentLossByMonth: Double, expect: Pair<Int, Int>) {
-        val actual = BuyCar.nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth)
-        assertEquals(expect, actual)
-    }
+class StatTest {
 
     @Test
-    fun fixedTests() {
-        testing(2000, 8000, 1000, 1.5, Pair(6, 766))
-        testing(8000, 12000, 500, 1.0, Pair(8, 597))
-        testing(18000, 32000, 1500, 1.25, Pair(8, 332))
-        testing(7500, 32000, 300, 1.55, Pair(25, 122))
-        testing(12000, 8000, 1000, 1.5 , Pair(0, 4000))
+    fun basicTests() {
+        assertEquals(
+            "Range: 01|01|18 Average: 01|38|05 Median: 01|32|34",
+            Stat.stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17")
+        )
+        assertEquals(
+            "Range: 00|31|17 Average: 02|26|18 Median: 02|22|00",
+            Stat.stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41")
+        )
 
     }
-
 }
