@@ -1,25 +1,25 @@
-package solution
+package gps
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
-class StatTest {
 
+class GpsSpeedTest {
     @Test
-    fun basicTests() {
-        assertEquals(
-            "Range: 01|01|18 Average: 01|38|05 Median: 01|32|34",
-            Stat.stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17")
-        )
-        assertEquals(
-            "Range: 00|31|17 Average: 02|26|18 Median: 02|22|00",
-            Stat.stat("02|15|59, 2|47|16, 02|17|20, 2|32|34, 2|17|17, 2|22|00, 2|31|41")
-        )
+    fun test1() {
+        println("Fixed Tests: gps")
+        var x = doubleArrayOf(0.0, 0.23, 0.46, 0.69, 0.92, 1.15, 1.38, 1.61)
+        testing(gps(20, x), 41)
+        x = doubleArrayOf(0.0, 0.11, 0.22, 0.33, 0.44, 0.65, 1.08, 1.26, 1.68, 1.89, 2.1, 2.31, 2.52, 3.25)
+        testing(gps(12, x), 219)
 
-        assertEquals(
-            "",
-            Stat.stat("")
-        )
-
+    }
+    companion object {
+        private fun randInt(min:Int, max:Int):Int {
+            return min + (Math.random() * ((max - min) + 1)).toInt()
+        }
+        private fun testing(actual:Int, expected:Int) {
+            assertEquals(expected, actual)
+        }
     }
 }
