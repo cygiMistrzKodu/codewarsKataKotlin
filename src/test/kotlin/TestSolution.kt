@@ -1,44 +1,20 @@
-package updown
+package solution
 
 
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-private fun testing(actual: String, expected: String) {
-    assertEquals(expected, actual)
-}
+class  CubesTest {
 
-class arrangestringMainTest {
+    private fun testing(s: String, expect: String) {
+        val actual: String = Cubes.isSumOfCubes(s)
+        assertEquals(expect, actual)
+    }
     @Test
-    fun test() {
-        println("Fixed Tests updown")
-        testing(
-            arrange("who hit"),
-            "who HIT"
-        )
-        testing(
-            arrange("who h"),
-            "h WHO"
-        )
-        testing(
-            arrange("h who"),
-            "h WHO"
-        )
-        testing(
-            arrange("h www oo"),
-            "h WWW oo"
-        )
-        testing(
-            arrange("h oo www"),
-            "h WWW oo"
-        )
+    fun basicTests() {
+        testing("0 9026315 -827&()", "0 0 Lucky")
+        testing("Once upon a midnight dreary, while100 I pondered, 9026315weak and weary -827&()", "Unlucky")
+        testing("Once 1000upon a midnight 110dreary, while100 I pondered, 9026315weak and weary -827&()", "0 0 Lucky")
 
-
-        testing(arrange("who hit retaining The That a we taken"),
-            "who RETAINING hit THAT a THE we TAKEN") // 3
-        testing(arrange("on I came up were so grandmothers"),
-            "i CAME on WERE up GRANDMOTHERS so") // 4
-        testing(arrange("way the my wall them him"),
-            "way THE my WALL him THEM") // 1
     }
 }
