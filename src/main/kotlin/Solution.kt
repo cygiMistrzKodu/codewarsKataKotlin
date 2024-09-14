@@ -1,35 +1,18 @@
-package solution
+package bouncing
 
-import kotlin.math.pow
+fun bouncingBall(h: Double, bounce: Double, window: Double): Int {
 
-object Cubes {
-    fun isSumOfCubes(s: String): String {
-
-        val regex = "\\d{3}|\\d{2}|\\d".toRegex()
-
-        val numbers = regex.findAll(s)
-            .map { it.value.toInt() }
-            .toList()
-
-
-        val cubicNumbers: MutableList<Int> = mutableListOf()
-        numbers.forEach { number ->
-            val cubicDigitsSum = number.toString().map { it.toString().toInt().toDouble().pow(3).toInt() }.sum()
-
-            if (cubicDigitsSum == number) {
-                cubicNumbers.add(number)
-            }
-
-        }
-
-        return if (cubicNumbers.isEmpty()) {
-            "Unlucky"
-        } else {
-            cubicNumbers.joinToString(" ") + " ${cubicNumbers.sum()} Lucky"
-        }
-
+    if (h <= 0 || window >= h || bounce <= 0 || bounce >= 1) {
+        return -1
     }
+
+    var timesBallSeen = 0;
+    var ballHeight = h
+    while (ballHeight > window) {
+        timesBallSeen += 2
+        ballHeight *= bounce
+    }
+
+
+    return timesBallSeen - 1
 }
-
-
-
