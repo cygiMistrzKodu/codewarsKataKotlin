@@ -1,21 +1,12 @@
 package solution
 
-import java.util.Locale
-import kotlin.math.abs
-import kotlin.math.round
+import java.math.BigInteger
 
-object PiApprox {
-    fun iterPi2String(epsilon: Double): String {
+object Diagonal {
 
-        var iteration = 0.0
-        var piApproximation = 0.0
+    fun diagonal(n: Int, p: Int): BigInteger {
 
-        while (abs(piApproximation - Math.PI) >= epsilon) {
-            piApproximation += 4 * Math.pow(-1.0, iteration) / (2 * iteration + 1)
-            iteration++
-        }
-
-        return "[${iteration.toInt()}, ${String.format(Locale.US, "%.10f", piApproximation)}]"
+        val bigInteger = BigInteger.valueOf(3)
+        return bigInteger
     }
-
 }
