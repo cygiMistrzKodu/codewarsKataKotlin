@@ -6,40 +6,24 @@ object Diagonal {
 
     fun diagonal(n: Int, p: Int): BigInteger {
 
-        val pascalTriangle = createPascalTriangle(n + 1)
-
-        return  (p..n).map { index ->
-            pascalTriangle[index][p]
-
+        return (p..n).map { row ->
+            partOfDiagonalFromRow(row, p)
         }.reduce { sum, number -> sum + number }
 
 
     }
 
-    fun createPascalTriangle(levels: Int): List<List<BigInteger>> {
+    fun partOfDiagonalFromRow(n: Int, diagonalPart: Int): BigInteger {
+        return (diagonalPart..diagonalPart).map { k -> binomialCoefficient(n, k) }[0]
+    }
 
-        val pascalTriangle: MutableList<MutableList<BigInteger>> = mutableListOf()
+    private fun binomialCoefficient(n: Int, k: Int): BigInteger {
+        return factorial(n) / (factorial(k) * factorial(n - k))
+    }
 
-        if (levels >= 1) {
-            pascalTriangle.add(mutableListOf(BigInteger.ONE))
-        }
-
-        if (levels >= 2) {
-            pascalTriangle.add(mutableListOf(BigInteger.ONE, BigInteger.ONE))
-        }
-
-        if (levels >= 3) {
-
-            (3..levels).map {
-                val nextLevel =
-                    listOf(BigInteger.ONE) + pascalTriangle.last()
-                        .zipWithNext() { a, b -> a + b } + listOf(BigInteger.ONE)
-                pascalTriangle.add(nextLevel.toMutableList())
-
-            }
-        }
-        return pascalTriangle
-
+    private fun factorial(num: Int): BigInteger {
+        return if (num == 0) BigInteger.ONE else (1..num).map { BigInteger.valueOf(it.toLong()) }
+            .reduce { acc, i -> acc * i }
     }
 
 }

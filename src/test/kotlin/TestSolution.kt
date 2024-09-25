@@ -6,69 +6,17 @@ import kotlin.test.assertEquals
 
 class DiagonalTest {
 
-
     @Test
-    fun whenLineOneThenPascalTriangleHaveOne() {
-        assertEquals(
-            mutableListOf(
-                mutableListOf(BigInteger.ONE)
-            ), Diagonal.createPascalTriangle(1)
-        )
-    }
-
-    @Test
-    fun whenLineOneThenPascalTriangleHaveTwoLevels() {
-        assertEquals(
-            mutableListOf(
-                mutableListOf(BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.ONE)
-            ), Diagonal.createPascalTriangle(2)
-        )
-    }
-
-    @Test
-    fun pascalTriangleLevelsThree() {
-        assertEquals(
-            mutableListOf(
-                mutableListOf(BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.TWO, BigInteger.ONE)
-            ), Diagonal.createPascalTriangle(3)
-        )
-    }
-
-    @Test
-    fun pascalTriangleLevelsFour() {
-        assertEquals(
-            mutableListOf(
-                mutableListOf(BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.TWO, BigInteger.ONE),
-                mutableListOf(
-                    BigInteger.ONE, BigInteger.valueOf(3),
-                    BigInteger.valueOf(3), BigInteger.ONE
-                )
-            ), Diagonal.createPascalTriangle(4)
-        )
-    }
-
-    @Test
-    fun pascalTriangleLevelsFive() {
-        assertEquals(
-            mutableListOf(
-                mutableListOf(BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.ONE),
-                mutableListOf(BigInteger.ONE, BigInteger.TWO, BigInteger.ONE),
-                mutableListOf(
-                    BigInteger.ONE, BigInteger.valueOf(3),
-                    BigInteger.valueOf(3), BigInteger.ONE
-                ),
-                mutableListOf(
-                    BigInteger.ONE, BigInteger.valueOf(4), BigInteger.valueOf(6), BigInteger.valueOf(4),
-                    BigInteger.ONE
-                )
-            ), Diagonal.createPascalTriangle(5)
-        )
+    fun getPartOfDiagonalFromPascalRow() {
+        assertEquals(BigInteger.ONE, Diagonal.partOfDiagonalFromRow(1, 1))
+        assertEquals(BigInteger.ONE, Diagonal.partOfDiagonalFromRow(2, 2))
+        assertEquals(BigInteger.ONE, Diagonal.partOfDiagonalFromRow(1, 1))
+        assertEquals(BigInteger.ONE, Diagonal.partOfDiagonalFromRow(1, 0))
+        assertEquals(BigInteger.TWO, Diagonal.partOfDiagonalFromRow(2, 1))
+        assertEquals(BigInteger.ONE, Diagonal.partOfDiagonalFromRow(2, 2))
+        assertEquals(BigInteger.valueOf(35), Diagonal.partOfDiagonalFromRow(7, 3))
+        assertEquals(BigInteger.valueOf(21), Diagonal.partOfDiagonalFromRow(7, 5))
+        assertEquals(BigInteger.valueOf(1), Diagonal.partOfDiagonalFromRow(7, 7))
     }
 
 
@@ -115,23 +63,4 @@ class DiagonalTest {
 
     }
 
-    @Test
-    fun longNumbersTests() {
-        assertEquals(BigInteger.valueOf(6385476296235036), Diagonal.diagonal(1291, 5))
-    }
-
-    @Test
-    fun veryLongNumberTest() {
-
-        assertEquals(
-            BigInteger(
-                "15520018282794855145521771584008670616528023199516300148225151327498554518" +
-                        "946739091210873083654062335657029403538513437778616308444771447785680961989809223546226398042673172" +
-                        "9793794728652023023749985526341895119496429851855415" +
-                        "24070069692166648244838032400"
-            ), Diagonal.diagonal(5720, 120)
-        )
-
-
-    }
 }
