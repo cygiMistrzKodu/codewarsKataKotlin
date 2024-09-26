@@ -6,19 +6,13 @@ object Diagonal {
 
     fun diagonal(n: Int, p: Int): BigInteger {
 
-        var res = BigInteger.ONE
-        var start = (n - p + 1).toBigInteger()
-        var row = BigInteger.ONE
-
-        for (i in 0..p) {
-            res = res * start / row
-            start++
-            row++
+        var r = BigInteger.valueOf(1L)
+        var i = BigInteger.valueOf(1L)
+        while (i <= BigInteger.valueOf((p + 1).toLong())) {
+            r = r * (BigInteger.valueOf(n.toLong()) - i + BigInteger.valueOf(2L)) / i
+            i = i + BigInteger.valueOf(1L)
         }
-        return res
-
-
-
+        return r
     }
 
 }
