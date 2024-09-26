@@ -7,23 +7,27 @@ object Diagonal {
     fun diagonal(n: Int, p: Int): BigInteger {
 
         return (p..n).map { row ->
-            partOfDiagonalFromRow(row, p)
+            elementOfDiagonalFromRow(row, p)
         }.reduce { sum, number -> sum + number }
 
-
     }
 
-    fun partOfDiagonalFromRow(n: Int, diagonalPart: Int): BigInteger {
-        return (diagonalPart..diagonalPart).map { k -> binomialCoefficient(n, k) }[0]
+    fun elementOfDiagonalFromRow(depth: Int, diagonalNumber: Int): BigInteger {
+        return binomialCoefficient(depth, diagonalNumber)
     }
 
-    private fun binomialCoefficient(n: Int, k: Int): BigInteger {
-        return factorial(n) / (factorial(k) * factorial(n - k))
-    }
+    fun binomialCoefficient(n: Int, k: Int): BigInteger {
+        var coefficient: BigInteger = BigInteger.ONE
 
-    private fun factorial(num: Int): BigInteger {
-        return if (num == 0) BigInteger.ONE else (1..num).map { BigInteger.valueOf(it.toLong()) }
-            .reduce { acc, i -> acc * i }
+        var kSubSet = k
+        if (kSubSet > n - kSubSet) {
+            kSubSet = n - kSubSet
+        }
+        for (i in 0 until kSubSet) {
+            coefficient *= (n - i).toBigInteger()
+            coefficient /= (i + 1).toBigInteger()
+        }
+        return coefficient
     }
 
 }
