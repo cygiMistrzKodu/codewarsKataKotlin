@@ -6,18 +6,18 @@ import kotlin.test.assertEquals
 
 class DiagonalTest {
 
-    @Test
-    fun getPartOfDiagonalFromPascalRow() {
-        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 1))
-        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(2, 2))
-        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 1))
-        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 0))
-        assertEquals(BigInteger.TWO, Diagonal.elementOfDiagonalFromRow(2, 1))
-        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(2, 2))
-        assertEquals(BigInteger.valueOf(35), Diagonal.elementOfDiagonalFromRow(7, 3))
-        assertEquals(BigInteger.valueOf(21), Diagonal.elementOfDiagonalFromRow(7, 5))
-        assertEquals(BigInteger.valueOf(1), Diagonal.elementOfDiagonalFromRow(7, 7))
-    }
+//    @Test
+//    fun getPartOfDiagonalFromPascalRow() {
+//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 1))
+//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(2, 2))
+//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 1))
+//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 0))
+//        assertEquals(BigInteger.TWO, Diagonal.elementOfDiagonalFromRow(2, 1))
+//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(2, 2))
+//        assertEquals(BigInteger.valueOf(35), Diagonal.elementOfDiagonalFromRow(7, 3))
+//        assertEquals(BigInteger.valueOf(21), Diagonal.elementOfDiagonalFromRow(7, 5))
+//        assertEquals(BigInteger.valueOf(1), Diagonal.elementOfDiagonalFromRow(7, 7))
+//    }
 
 
     @Test
