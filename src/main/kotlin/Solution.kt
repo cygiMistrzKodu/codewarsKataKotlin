@@ -1,5 +1,3 @@
-fun filterList(l: List<Any>): List<Int> {
-
-    return l.asSequence().filterIsInstance<Int>().toList()
-
+fun alphabetWar(fight: String): String {
+   return ""
 }
