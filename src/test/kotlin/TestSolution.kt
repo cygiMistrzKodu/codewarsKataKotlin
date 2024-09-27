@@ -1,66 +1,16 @@
-package solution
-
-import org.junit.jupiter.api.Test
-import java.math.BigInteger
-import kotlin.test.assertEquals
-
-class DiagonalTest {
-
-//    @Test
-//    fun getPartOfDiagonalFromPascalRow() {
-//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 1))
-//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(2, 2))
-//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 1))
-//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(1, 0))
-//        assertEquals(BigInteger.TWO, Diagonal.elementOfDiagonalFromRow(2, 1))
-//        assertEquals(BigInteger.ONE, Diagonal.elementOfDiagonalFromRow(2, 2))
-//        assertEquals(BigInteger.valueOf(35), Diagonal.elementOfDiagonalFromRow(7, 3))
-//        assertEquals(BigInteger.valueOf(21), Diagonal.elementOfDiagonalFromRow(7, 5))
-//        assertEquals(BigInteger.valueOf(1), Diagonal.elementOfDiagonalFromRow(7, 7))
-//    }
+import org.junit.jupiter.api.Assertions.assertEquals
+import kotlin.test.Test
 
 
-    @Test
-    fun when1And0ThenDiagonalSum2() {
-        assertEquals(BigInteger.valueOf(2), Diagonal.diagonal(1, 0))
-    }
-
-    @Test
-    fun when2And0ThenDiagonalSum3() {
-        assertEquals(BigInteger.valueOf(3), Diagonal.diagonal(2, 0))
-    }
-
-    @Test
-    fun when3And0ThenDiagonalSum4() {
-        assertEquals(BigInteger.valueOf(4), Diagonal.diagonal(3, 0))
-    }
-
-    @Test
-    fun when2And1ThenDiagonalSum3() {
-        assertEquals(BigInteger.valueOf(3), Diagonal.diagonal(2, 1))
-    }
-
-    @Test
-    fun when3And1ThenDiagonalSum6() {
-        assertEquals(BigInteger.valueOf(6), Diagonal.diagonal(3, 1))
-    }
-
-    @Test
-    fun when3And2ThenDiagonalSum4() {
-        assertEquals(BigInteger.valueOf(4), Diagonal.diagonal(3, 2))
-    }
-
-    @Test
-    fun when4And0ThenDiagonalSum4() {
-        assertEquals(BigInteger.valueOf(5), Diagonal.diagonal(4, 0))
-    }
-
+class TestExample {
     @Test
     fun basicTests() {
-        assertEquals(BigInteger.valueOf(5985), Diagonal.diagonal(20, 3))
-        assertEquals(BigInteger.valueOf(20349), Diagonal.diagonal(20, 4))
-        assertEquals(BigInteger.valueOf(54264), Diagonal.diagonal(20, 5))
-
+        assertEquals(listOf(1, 2), filterList(listOf(1, 2, 'a', 'b')), "For input [1, 2, 'a', 'b']")
+        assertEquals(listOf(1, 0, 15), filterList(listOf(1, 'a', 'b', 0, 15)), "For input [1, 'a', 'b', 0, 15]")
+        assertEquals(
+            listOf(1, 2, 123),
+            filterList(listOf(1, 2, "aasf", '1', "123", 123)),
+            "For input [1, 2, 'aasf', '1', '123', 123]"
+        )
     }
-
 }
