@@ -1,3 +1,5 @@
-fun argsCount(vararg args: Any): Int {
-    return args.count()
+package newavg
+
+fun newAvg(a:DoubleArray, navg:Double):Long {
+   return 1L
 }
