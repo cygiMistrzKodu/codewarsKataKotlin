@@ -1,3 +1,3 @@
 fun argsCount(vararg args: Any): Int {
-    return 0
+    return args.count()
 }
