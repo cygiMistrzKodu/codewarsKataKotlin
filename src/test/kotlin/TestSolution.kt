@@ -1,13 +1,18 @@
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 
-class TestExample {
+class ExampleTest {
     @Test
-    fun testFixed() {
-        assertEquals("Right side wins!", alphabetWar("z"))
-        assertEquals("Right side wins!", alphabetWar("zzzzs"))
-        assertEquals("Left side wins!", alphabetWar("wwwwww"))
-        assertEquals("Let's fight again!", alphabetWar("zdqmwpbs"))
+    fun basicTests() {
+        assertEquals(1, argsCount(100))
+        assertEquals(3, argsCount(100, 2, 3))
+        assertEquals(2, argsCount(32, 12))
+        assertEquals(0, argsCount())
+        assertEquals(1, argsCount("a string!"))
+    }
+    @Test
+    fun anyTypeTest() {
+        assertEquals(2, argsCount("a string!", Pair(1, "2")))
     }
 }
