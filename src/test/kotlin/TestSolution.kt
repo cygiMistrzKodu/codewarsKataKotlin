@@ -1,40 +1,17 @@
-package newavg
+package codewars.cityhacker
 
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import kotlin.test.assertEquals
 
-
-class newaverageMainTest {
-    private fun testing(actual: Long, expected: Long) {
-        assertEquals(expected, actual)
-    }
+class LondonCityHackerTest {
 
     @Test
-    fun test() {
-        println("Fixed Tests newAvg")
-        var a = doubleArrayOf(14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 16.0)
-        testing(newAvg(a, 90.0), 628)
-        a = doubleArrayOf(14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 15.0)
-        testing(newAvg(a, 92.0), 645)
+    fun exampleTests() {
+        assertEquals("£7.80", londonCityHacker(arrayOf(12, "Central", "Circle", 21)));
+        assertEquals("£3.90", londonCityHacker(arrayOf("Piccidilly", 56)));
+        assertEquals("£7.20", londonCityHacker(arrayOf("Northern", "Central", "Circle")));
+        assertEquals("£5.40", londonCityHacker(arrayOf("Piccidilly", 56, 93, 243)));
+        assertEquals("£3.00", londonCityHacker(arrayOf(386, 56, 1, 876)));
+        assertEquals("£0.00", londonCityHacker(arrayOf()));
     }
-
-    @Test
-    fun testEmpty() {
-        println("Fixed Tests newAvg")
-        var a = doubleArrayOf()
-        testing(newAvg(a, 90.0), 90)
-    }
-
-
-    @Test
-    fun testIllegalArgumentException1() {
-        assertThrows<IllegalArgumentException> {
-            println("--- Exception 1 ---")
-            val a = doubleArrayOf(14.0, 30.0, 5.0, 7.0, 9.0, 11.0, 15.0)
-            newAvg(a, 2.0)
-
-        }
-    }
-
 }
