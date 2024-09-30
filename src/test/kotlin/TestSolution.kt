@@ -19,6 +19,13 @@ class newaverageMainTest {
         testing(newAvg(a, 92.0), 645)
     }
 
+    @Test
+    fun testEmpty() {
+        println("Fixed Tests newAvg")
+        var a = doubleArrayOf()
+        testing(newAvg(a, 90.0), 90)
+    }
+
 
     @Test
     fun testIllegalArgumentException1() {
