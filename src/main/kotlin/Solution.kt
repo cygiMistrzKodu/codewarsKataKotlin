@@ -1,29 +1,20 @@
-package codewars.cityhacker
+package target
 
-import java.util.Locale
+import java.time.LocalDate;
 
-fun londonCityHacker(journey: Array<Any>): String {
+fun dateNbDays(a0: Double, a: Double, p: Double): String {
 
-    var cost = 0.0
-    var bussAdjacent = 0
-    for (connection in journey) {
-        when (connection) {
-            is String -> {
-                cost += 2.4
-                bussAdjacent = 0
-            }
+    val percentPerDay = p / 36000
+    var money = a0
+    var days = 0;
 
-            is Number -> {
-                if (bussAdjacent == 0) {
-                    cost += 1.5
-                }
-                bussAdjacent++
-                if (bussAdjacent >= 2) {
-                    bussAdjacent = 0
-                }
-            }
-        }
+    while (money < a) {
+        days++
+        money += percentPerDay * money
     }
 
-    return "£${String.format(Locale.US, "%.2f", cost)}"
+    val depositDate = LocalDate.of(2016, 1, 1)
+    depositDate.plusDays(days.toLong())
+
+    return "${depositDate.plusDays(days.toLong())}"
 }

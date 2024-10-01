@@ -1,17 +1,19 @@
-package codewars.cityhacker
+package target
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
-class LondonCityHackerTest {
+
+class DateDaysTest {
+    private fun testing(actual:String, expected:String) {
+        assertEquals(expected, actual)
+    }
 
     @Test
-    fun exampleTests() {
-        assertEquals("£7.80", londonCityHacker(arrayOf(12, "Central", "Circle", 21)));
-        assertEquals("£3.90", londonCityHacker(arrayOf("Piccidilly", 56)));
-        assertEquals("£7.20", londonCityHacker(arrayOf("Northern", "Central", "Circle")));
-        assertEquals("£5.40", londonCityHacker(arrayOf("Piccidilly", 56, 93, 243)));
-        assertEquals("£3.00", londonCityHacker(arrayOf(386, 56, 1, 876)));
-        assertEquals("£0.00", londonCityHacker(arrayOf()));
+    fun test() {
+        println("Fixed Tests dateNbDays")
+        testing(dateNbDays(4281.0, 5087.0, 2.0), "2024-07-03")
+        testing(dateNbDays(4620.0, 5188.0, 2.0), "2021-09-19")
+
     }
 }
