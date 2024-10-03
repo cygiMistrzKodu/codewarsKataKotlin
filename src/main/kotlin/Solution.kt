@@ -1,8 +1,19 @@
 package valley
 
-import java.util.Arrays
-
 fun makeValley(arr: IntArray): IntArray {
 
-    return intArrayOf(1,2,3,4)
+    val fromUpToBottom = arr.asSequence().sortedByDescending { it }.toList()
+
+    val leftWing = mutableListOf<Int>()
+    val rightWing =mutableListOf<Int>()
+
+    fromUpToBottom.mapIndexed {index , value ->
+        if (index % 2 == 0) {
+            rightWing.add(value)
+        } else {
+            leftWing.add(0,value)
+        }
+    }
+
+    return listOf(rightWing,leftWing).flatten().toIntArray()
 }
