@@ -1,24 +1,16 @@
-package valley
-
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
-
-class ValleyTest {
-    //.................
-    private fun testing(actual: String, expected: String) {
-        assertEquals(expected, actual)
-    }
-
+class TestExample {
     @Test
-    fun test1() {
-        println("Fixed Tests makeValley")
-        var a = intArrayOf(17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1)
-        var r = intArrayOf(17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17)
-        testing(makeValley(a).contentToString(), r.contentToString())
-        a = intArrayOf(20, 7, 6, 2)
-        r = intArrayOf(20, 6, 2, 7)
-        testing(makeValley(a).contentToString(), r.contentToString())
-
+    fun testFixed() {
+        assertEquals("Right side wins!", alphabetWar("z"))
+        assertEquals("Let's fight again!", alphabetWar("****"))
+        assertEquals("Let's fight again!", alphabetWar("z*dq*mw*pb*s"))
+        assertEquals("Let's fight again!", alphabetWar("zdqmwpbs"))
+        assertEquals("Right side wins!", alphabetWar("zz*zzs"))
+        assertEquals("Left side wins!", alphabetWar("sz**z**zs"))
+        assertEquals("Left side wins!", alphabetWar("z*z*z*zs"))
+        assertEquals("Left side wins!", alphabetWar("*wwwwww*z*"))
     }
 }
