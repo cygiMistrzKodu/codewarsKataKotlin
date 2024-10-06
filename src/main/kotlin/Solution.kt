@@ -1,4 +1,4 @@
 fun fireFight(s: String): String {
 
-    return ""
+    return s.replace("Fire", "~~" )
 }
