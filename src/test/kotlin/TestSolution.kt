@@ -4,13 +4,14 @@ import kotlin.test.assertEquals
 class TestExample {
     @Test
     fun testFixed() {
-        assertEquals("Right side wins!", alphabetWar("z"))
-        assertEquals("Let's fight again!", alphabetWar("****"))
-        assertEquals("Let's fight again!", alphabetWar("z*dq*mw*pb*s"))
-        assertEquals("Let's fight again!", alphabetWar("zdqmwpbs"))
-        assertEquals("Right side wins!", alphabetWar("zzs"))
-        assertEquals("Left side wins!", alphabetWar("sz**zz*z**zs"))
-        assertEquals("Left side wins!", alphabetWar("z*z*z*zs"))
-        assertEquals("Left side wins!", alphabetWar("*wwwwww*z*"))
+        assertEquals(
+            "Boat Rudder Mast Boat Hull Water ~~ Boat Deck Hull ~~ Propeller Deck ~~ Deck Boat Mast",
+            fireFight("Boat Rudder Mast Boat Hull Water Fire Boat Deck Hull Fire Propeller Deck Fire Deck Boat Mast")
+        )
+        assertEquals("Mast Deck Engine Water ~~", fireFight("Mast Deck Engine Water Fire"))
+        assertEquals(
+            "~~ Deck Engine Sail Deck ~~ ~~ ~~ Rudder ~~ Boat ~~ ~~ Captain",
+            fireFight("Fire Deck Engine Sail Deck Fire Fire Fire Rudder Fire Boat Fire Fire Captain")
+        )
     }
 }
