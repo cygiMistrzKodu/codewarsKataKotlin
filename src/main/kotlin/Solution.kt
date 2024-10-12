@@ -6,8 +6,6 @@ fun digPow(n: Int, p: Int): Int {
 
     val sumRiseToToConsecutivePowers = riseToConsecutivePowers(digits, p).sum()
 
-    println(sumRiseToToConsecutivePowers)
-
     var kCandidate = 0
     var kMultiplyN = 0
     var k = -1
