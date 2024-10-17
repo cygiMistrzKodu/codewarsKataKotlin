@@ -1,7 +1,7 @@
 fun mirror(text: String): String {
 
     val wordsReversed = text.split(" ").map { it.reversed() }.toList()
-    val longestWordCount = wordsReversed.map { it.count() }.max()
+    val longestWordCount = wordsReversed.maxOfOrNull { it.count() } ?: 0
 
     val verticalEdgesInARowCount = 4
     val horizontalEdgeStarCount = longestWordCount + verticalEdgesInARowCount
