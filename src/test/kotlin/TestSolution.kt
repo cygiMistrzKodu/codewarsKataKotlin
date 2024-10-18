@@ -1,16 +1,11 @@
 import org.junit.jupiter.api.Test
+import java.util.*
 import kotlin.test.assertEquals
 
-
-class TestExample {
+class KotlinTricks0 {
     @Test
-    fun `Basic Tests`() {
-        assertEquals("*********\n* olleH *\n* dlroW *\n*********", mirror("Hello World"))
-        assertEquals("************\n* srawedoC *\n************", mirror("Codewars"))
-    }
-
-    @Test
-    fun `More advanced test`() {
-        assertEquals("***********\n* yiawyer *\n* oywyim  *\n* atwdvpz *\n* apzqgh  *\n***********", mirror("reywaiy miywyo zpvdwta hgqzpa"))
+    fun testInt() {
+        val r = Random(System.currentTimeMillis())
+        (0..100).forEach { r.nextInt().let { assertEquals(it, kotlin.Int(it.toString())) } }
     }
 }

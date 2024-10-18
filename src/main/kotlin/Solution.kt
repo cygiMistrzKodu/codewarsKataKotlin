@@ -1,32 +1,5 @@
-fun mirror(text: String): String {
+fun Int(s: String) = s.toInt()
+fun Long(s: String) = s.toLong()
+fun Double(s: String) = s.toDouble()
 
-    val wordsReversed = text.split(" ").map { it.reversed() }.toList()
-    val longestWordCount = wordsReversed.maxOfOrNull { it.count() } ?: 0
-
-    val verticalEdgesInARowCount = 4
-    val horizontalEdgeStarCount = longestWordCount + verticalEdgesInARowCount
-
-    val star = "*"
-    val horizontalEdge = star.repeat(horizontalEdgeStarCount)
-
-    val mirrorFrame = StringBuilder()
-    mirrorFrame.append(horizontalEdge)
-
-    val emptyRow = "\n"
-    mirrorFrame.append(emptyRow)
-
-    val leftEdge = "$star "
-    val rightEdge = " $star"
-
-    wordsReversed.forEach { word ->
-        mirrorFrame.append(leftEdge)
-        mirrorFrame.append(word)
-        mirrorFrame.append(" ".repeat(longestWordCount - word.count()))
-        mirrorFrame.append(rightEdge)
-        mirrorFrame.append(emptyRow)
-
-    }
-    mirrorFrame.append(horizontalEdge)
-
-    return mirrorFrame.toString()
-}
+// the code above cannot pass the tests. Please make them pass.
