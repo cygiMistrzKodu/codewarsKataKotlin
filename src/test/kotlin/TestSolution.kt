@@ -1,11 +1,16 @@
-import org.junit.jupiter.api.Test
-import java.util.*
-import kotlin.test.assertEquals
+package com.codewars.hybris95
 
-class KotlinTricks0 {
+import org.junit.jupiter.api.Test
+import kotlin.test.DefaultAsserter.assertTrue
+
+
+class LeetspeakTest {
+
+    internal var myEncoder: Leetspeak = Leetspeak()
+
     @Test
-    fun testInt() {
-        val r = Random(System.currentTimeMillis())
-        (0..100).forEach { r.nextInt().let { assertEquals(it, kotlin.Int(it.toString())) } }
+    fun simpleTest() {
+        assertTrue("empty string", myEncoder.encode("") == "")
+        assertTrue("abcdef string", myEncoder.encode("abcdef") == "4bcd3f")
     }
 }

@@ -1,4 +1,13 @@
-operator fun kotlin.Int.Companion.invoke(s: String): Int = s.toInt()
-operator fun kotlin.Long.Companion.invoke(s: String): Long = s.toLong()
-operator fun kotlin.Double.Companion.invoke(s: String): Double = s.toDouble()
+package com.codewars.hybris95
 
+class Leetspeak {
+
+    fun encode(source: String?): String {
+        // TODO - Encode the source string into a 133tSp34k string
+        return "133tSp34k";
+    }
+}
+
+abstract class Encoder {
+    abstract fun encode(source: String?): String
+}
