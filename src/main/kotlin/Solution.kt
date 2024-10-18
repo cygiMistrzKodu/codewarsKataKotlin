@@ -1,10 +1,20 @@
 package com.codewars.hybris95
 
-class Leetspeak {
+class Leetspeak : Encoder() {
 
-    fun encode(source: String?): String {
-        // TODO - Encode the source string into a 133tSp34k string
-        return "133tSp34k";
+    private val translator = mapOf(
+        "a" to "4",
+        "e" to "3",
+        "l" to "1",
+        "m" to "/^^\\",
+        "o" to "0",
+        "u" to "(_)"
+    )
+
+    override fun encode(source: String?): String {
+
+        return (source ?: "").toList().map { translator.getOrDefault(it.lowercase(), it) }.joinToString("")
+
     }
 }
 
