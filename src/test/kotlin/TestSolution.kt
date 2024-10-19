@@ -1,18 +1,19 @@
-package com.codewars.hybris95
+package thirteen
 
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.junit5.JUnit5Asserter.assertTrue
 
-
-class LeetspeakTest {
-
-    internal var myEncoder: Leetspeak = Leetspeak()
-
+class ThirteenTest {
     @Test
-    fun simpleTest() {
-        assertTrue("object null", myEncoder.encode(null) == "")
-        assertTrue("empty string", myEncoder.encode("") == "")
-        assertTrue("abcdef string", myEncoder.encode("abcdef") == "4bcd3f")
-        assertTrue("AbcdEf string wih big numbers", myEncoder.encode("AbcdEf") == "4bcd3f")
+    fun test1() {
+        println("Fixed Tests: thirt")
+        testing(thirt(8529), 79)
+        testing(thirt(85299258), 31)
+
+    }
+    companion object {
+        private fun testing(actual:Long, expected:Long) {
+            assertEquals(expected, actual)
+        }
     }
 }
