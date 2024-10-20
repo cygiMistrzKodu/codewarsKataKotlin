@@ -1,37 +1,26 @@
-package thirteen
+package simpson
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import java.text.DecimalFormat
 
-class ThirteenTest {
+class SimpsonIntegrationTest {
     @Test
     fun test1() {
-        println("Fixed Tests: thirt")
-        testing(thirt(8529), 79)
-        testing(thirt(85299258), 31)
+        println("Fixed Tests: simpson")
+        assertFuzzyEquals(simpson(290), 1.9999999986)
+        assertFuzzyEquals(simpson(72), 1.9999996367)
 
     }
     companion object {
-        private fun testing(actual:Long, expected:Long) {
-            assertEquals(expected, actual)
+        private fun assertFuzzyEquals(act:Double, exp:Double) {
+            val inrange = Math.abs(act - exp) <= 1e-10
+            if (inrange == false)
+            {
+                val df = DecimalFormat("#.0000000000")
+                println("At 1e-10: Expected must be " + df.format(exp) + ", but got " + df.format(act))
+            }
+            assertEquals(true, inrange)
         }
-    }
-
-    @Test
-    fun getRemindersOf13ByDigitOrderTest() {
-        assertEquals(1, getRemindersOf13ByDigitOrder(0))
-        assertEquals(10, getRemindersOf13ByDigitOrder(1))
-        assertEquals(3, getRemindersOf13ByDigitOrder(4))
-        assertEquals(1, getRemindersOf13ByDigitOrder(6))
-        assertEquals(10, getRemindersOf13ByDigitOrder(7))
-        assertEquals(12, getRemindersOf13ByDigitOrder(15))
-        assertEquals(10, getRemindersOf13ByDigitOrder(25))
-    }
-
-    @Test
-    fun sumProductsBy13DivisibilityCycleTest() {
-        assertEquals(178, sumProductsBy13DivisibilityCycle(1234567))
-        assertEquals(87, sumProductsBy13DivisibilityCycle(178))
-        assertEquals(87, sumProductsBy13DivisibilityCycle(87))
     }
 }
