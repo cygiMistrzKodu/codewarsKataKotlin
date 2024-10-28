@@ -1,18 +1,8 @@
-package com.codewars.geoffp
+object Solution {
 
-object UnwantedDollars {
-    fun moneyValue(money: String): Double {
-
-        if (!money.contains("\\d+".toRegex())){
-            return 0.0
-        }
-
-        if (money.contains("$")) {
-            return money.replace("$", "")
-                .replace(" ","").toDouble()
-        }
-
-
-        return money.toDouble()
+    fun nameValue(arr: Array<String>): IntArray {
+        // your clean code here
+        TODO()
     }
+
 }
