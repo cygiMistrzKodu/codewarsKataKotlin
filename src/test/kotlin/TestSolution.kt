@@ -1,14 +1,23 @@
-import org.junit.jupiter.api.Assertions.assertArrayEquals
+package solution
+
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class SolutionTest {
+
+class MatchSubstTest {
+    private fun dotest(s: String, prog: String, version: String, exp: String) {
+        val ans = MatchSubst.change(s, prog, version)
+        assertEquals(exp, ans)
+    }
+
     @Test
-    fun basicTests() {
-        assertArrayEquals(intArrayOf(6, 24), Solution.nameValue(arrayOf("abc", "abc abc")))
-        assertArrayEquals(intArrayOf(88, 12, 225), Solution.nameValue(arrayOf("codewars", "abc", "xyz")))
-        assertArrayEquals(
-            intArrayOf(351, 282, 330),
-            Solution.nameValue(arrayOf("abcdefghijklmnopqrstuvwxyz", "stamford bridge", "haskellers"))
-        )
+    fun test() {
+        println("Basic Tests");
+        val s1 = "Program title: Primes\nAuthor: Kern\nCorporation: Gold\nPhone: +1-503-555-0091\nDate: Tues April 9, 2005\nVersion: 6.7\nLevel: Alpha"
+        dotest(s1, "Ladder", "1.1", "Program: Ladder Author: g964 Phone: +1-503-555-0090 Date: 2019-01-01 Version: 1.1")
+
+        val s14 = "Program title: Primes\nAuthor: Kern\nCorporation: Gold\nPhone: +1-503-555-0091\nDate: Tues April 9, 2005\nVersion: 6.7.5\nLevel: Alpha"
+        dotest(s14, "Ladder", "1.1", "ERROR: VERSION or PHONE")
+
     }
 }

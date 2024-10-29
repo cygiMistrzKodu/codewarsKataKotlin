@@ -1,25 +1,9 @@
-object Solution {
+package solution
 
-    private val alphabetValueMap: Map<Char, Int>
+object MatchSubst {
 
-    init {
-        val alphabet = ('a'..'z').toList()
-        alphabetValueMap = alphabet.mapIndexed { index, char -> char to index + 1 }.toMap()
+    fun change(s: String, prog: String, version: String): String {
+        // your code
+        return ""
     }
-
-    fun nameValue(arr: Array<String>): IntArray {
-
-        return arr.mapIndexed { index, word ->
-
-            (index + 1) * valueFromWord(word)
-
-        }.toIntArray()
-
-    }
-
-    private fun valueFromWord(word: String): Int {
-
-        return word.map { char -> alphabetValueMap.getOrDefault(char, 0) }.sum()
-    }
-
 }
