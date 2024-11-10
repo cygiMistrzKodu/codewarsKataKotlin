@@ -84,9 +84,5 @@ class PhoneDirTest {
         assertEquals("Sequoia Alley PQ-67209", PhoneDir.addressFromEntry(" :+1-321-512-2222 <Paul Dive> Sequoia Alley PQ-67209"))
         assertEquals("Via Papa Roma", PhoneDir.addressFromEntry("<Elizabeth Corber> +8-421-674-8974 Via Papa Roma"))
 
-//        val twoEntry = "<Anastasia> +48-421-674-8974 Via Quirinal Roma\n + <Elizabeth Corber> +8-421-674-8974 Via Papa Roma\n"
-//
-//        assertEquals("Via Papa Roma", PhoneDir.addressFromEntry(twoEntry))
-
     }
 }
