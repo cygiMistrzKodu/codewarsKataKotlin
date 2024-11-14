@@ -1,88 +1,130 @@
 package solution
 
+
 import org.junit.jupiter.api.Test
+import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
-class PhoneDirTest {
-    private fun testing(actual: String, expected: String) {
-        assertEquals(expected, actual)
+class DirReductionTest {
+
+    private fun testing(arr: Array<String>, expect: Array<String>) {
+        val actual: Array<String> = DirReduction.dirReduc(arr)
+        assertEquals(expect.contentDeepToString(), actual.contentDeepToString())
     }
 
-    val dr = ("/+1-541-754-3010 156 Alphand_St. <J Steeve>\n 133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010\n"
-            + "<Anastasia> +48-421-674-8974 Via Quirinal Roma\n <P Salinger> Main Street, +1-098-512-2222, Denver\n"
-            + "<Q Salinge> Main Street, +1-098-512-2222, Denve\n" + "<R Salinge> Main Street, +1-098-512-2222, Denve\n"
-            + "<C Powel> *+19-421-674-8974 Chateau des Fosses Strasbourg F-68000\n <Bernard Deltheil> +1-498-512-2222; Mount Av.  Eldorado\n")
-
     @Test
-    fun test1() {
-        testing(
-            PhoneDir.phone(dr, "48-421-674-8974"),
-            "Phone => 48-421-674-8974, Name => Anastasia, Address => Via Quirinal Roma"
-        )
-        testing(
-            PhoneDir.phone(dr, "19-421-674-8974"),
-            "Phone => 19-421-674-8974, Name => C Powel, Address => Chateau des Fosses Strasbourg F-68000"
-        )
-        testing(PhoneDir.phone(dr, "1-098-512-2222"), "Error => Too many people: 1-098-512-2222")
-        testing(PhoneDir.phone(dr, "5-555-555-5555"), "Error => Not found: 5-555-555-5555")
+    fun basicTests() {
+        var a = arrayOf("NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST")
+        testing(a, arrayOf("WEST"))
+        a = arrayOf("NORTH", "WEST", "SOUTH", "EAST")
+        testing(a, arrayOf("NORTH", "WEST", "SOUTH", "EAST"))
+        a = arrayOf("NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "NORTH")
+        testing(a, arrayOf("NORTH"))
+        a = arrayOf("NORTH", "EAST", "NORTH", "EAST", "WEST", "WEST", "EAST", "EAST", "WEST", "SOUTH")
+        testing(a, arrayOf("NORTH", "EAST"))
+        a = arrayOf("")
+        testing(a, arrayOf(""))
 
     }
 
     @Test
-    fun errorCases() {
-        testing(PhoneDir.phone(dr, "1-098-512-2222"), "Error => Too many people: 1-098-512-2222")
-        testing(PhoneDir.phone(dr, "5-555-555-5555"), "Error => Not found: 5-555-555-5555")
+    fun emptyAndNullDirectionIsEmpty() {
+        var a = arrayOf("")
+        testing(a, arrayOf(""))
+
+        a = emptyArray()
+        testing(a, arrayOf(""))
     }
 
     @Test
-    fun findHowManyPhoneTest() {
-        var phoneBookEntry = "<C Powel> *+19-421-674-8974 Chateau des Fosses Strasbourg F-68000"
+    fun goToOneDirection() {
+        var a = arrayOf("NORTH")
+        testing(a, arrayOf("NORTH"))
 
-        assertEquals(1, PhoneDir.countPhone(phoneBookEntry, "19-421-674-8974"))
+        a = arrayOf("SOUTH")
+        testing(a, arrayOf("SOUTH"))
 
-        phoneBookEntry = "<C Powel> *+19-421-674-8974 Chateau des Fosses Strasbourg F-68000\n" +
-                "<C Powel> *+19-421-674-8974 Chateau des Fosses Strasbourg F-68000\n"
-
-        assertEquals(2, PhoneDir.countPhone(phoneBookEntry, "19-421-674-8974"))
-
-        phoneBookEntry = "<Elizabeth Corber> +8-421-674-8974 Via Papa Roma\n" +
-                "<Anastasia> +48-421-674-8974 Via Quirinal Roma\n"
-
-        assertEquals(1, PhoneDir.countPhone(phoneBookEntry, "8-421-674-8974"))
-    }
-
-    @Test
-    fun getEntryWithPhoneNumberTest() {
-
-        assertEquals("<Anastasia> +48-421-674-8974 Via Quirinal Roma", PhoneDir.getPhoneLine(dr,"48-421-674-8974"))
-
-        val twoEntry = "<Anastasia> +48-421-674-8974 Via Quirinal Roma\n<Elizabeth Corber> +8-421-674-8974 Via Papa Roma\n"
-
-        assertEquals("<Elizabeth Corber> +8-421-674-8974 Via Papa Roma", PhoneDir.getPhoneLine(twoEntry,"8-421-674-8974"))
+        a = arrayOf("WEST")
+        testing(a, arrayOf("WEST"))
 
     }
 
     @Test
-    fun getNameFromPhoneEntryTest() {
-        assertEquals("Anastasia", PhoneDir.nameFromEntry("<Anastasia> +48-421-674-8974 Via Quirinal Roma"))
-        assertEquals("Bernard Deltheil", PhoneDir.nameFromEntry(" <Bernard Deltheil> +1-498-512-2222; Mount Av.  Eldorado"))
-        assertEquals("E Kustur", PhoneDir.nameFromEntry("133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010"))
+    fun directionThatShouldNotBeReduced() {
+        var a = arrayOf("NORTH", "NORTH")
+        testing(a, arrayOf("NORTH", "NORTH"))
+
+        a = arrayOf("SOUTH", "SOUTH")
+        testing(a, arrayOf("SOUTH", "SOUTH"))
+
+        a = arrayOf("WEST", "WEST", "WEST")
+        testing(a, arrayOf("WEST", "WEST", "WEST"))
+
+        a = arrayOf("EAST", "EAST", "EAST")
+        testing(a, arrayOf("EAST", "EAST", "EAST"))
+
+        a = arrayOf("EAST", "NORTH", "NORTH")
+        testing(a, arrayOf("EAST", "NORTH", "NORTH"))
+
+        a = arrayOf("NORTH", "WEST", "SOUTH", "EAST")
+        testing(a, arrayOf("NORTH", "WEST", "SOUTH", "EAST"))
+
+        a = arrayOf("SOUTH", "WEST", "NORTH", "EAST")
+        testing(a, arrayOf("SOUTH", "WEST", "NORTH", "EAST"))
     }
 
     @Test
-    fun getAddressOneEntryTest() {
-        assertEquals("Via Quirinal Roma", PhoneDir.addressFromEntry("<Anastasia> +48-421-674-8974 Via Quirinal Roma"))
-        assertEquals("Mount Av. Eldorado", PhoneDir.addressFromEntry(" <Bernard Deltheil> +1-498-512-2222; Mount Av.  Eldorado"))
-        assertEquals("133 Green Rd. NY-56423", PhoneDir.addressFromEntry("133, Green, Rd. <E Kustur> NY-56423 ;+1-541-914-3010"))
-        assertEquals("Chateau des Fosses Strasbourg F-68000", PhoneDir.addressFromEntry("<C Powel> *+19-421-674-8974 Chateau des Fosses Strasbourg F-68000"))
-        assertEquals("156 Alphand St.", PhoneDir.addressFromEntry("/+1-541-754-3010 156 Alphand_St. <J Steeve>"))
-        assertEquals("Eleonore Street QB-87209", PhoneDir.addressFromEntry("<Robert Mitch> Eleonore Street QB-87209 +2-481-512-2222?"))
-        assertEquals("156 Alphand St.", PhoneDir.addressFromEntry("/+1-541-754-3010 156 Alphand_St. <J Steeve>"))
-        assertEquals("PO Box 5300 Albertville SC-28573", PhoneDir.addressFromEntry("+5-541-984-3012 <Peter Reeves> /PO Box 5300; Albertville, SC-28573"))
-        assertEquals("San Antonio TT-45120", PhoneDir.addressFromEntry("<Arthur Clarke> San Antonio $+1-121-504-8974 TT-45120"))
-        assertEquals("1333 Green Road NW-46423", PhoneDir.addressFromEntry(" 1333, Green, Road <F Fulgur> NW-46423 ;+6-541-914-3010!"))
-        assertEquals("Sequoia Alley PQ-67209", PhoneDir.addressFromEntry(" :+1-321-512-2222 <Paul Dive> Sequoia Alley PQ-67209"))
-        assertEquals("Via Papa Roma", PhoneDir.addressFromEntry("<Elizabeth Corber> +8-421-674-8974 Via Papa Roma"))
+    fun directionToReduced() {
+        var a = arrayOf("NORTH", "SOUTH")
+        testing(a, arrayOf(""))
+
+        a = arrayOf("WEST", "EAST")
+        testing(a, arrayOf(""))
+
+        a = arrayOf("EAST", "WEST")
+        testing(a, arrayOf(""))
+
+        a = arrayOf("SOUTH", "NORTH")
+        testing(a, arrayOf(""))
+
+        a = arrayOf("NORTH", "SOUTH", "WEST")
+        testing(a, arrayOf("WEST"))
+
+        a = arrayOf("NORTH", "SOUTH", "WEST", "EAST")
+        testing(a, arrayOf(""))
+
+        a = arrayOf("NORTH", "SOUTH", "WEST", "EAST", "NORTH")
+        testing(a, arrayOf("NORTH"))
+
+        a = arrayOf("SOUTH", "WEST", "WEST", "NORTH", "NORTH", "SOUTH", "EAST")
+        testing(a, arrayOf("SOUTH", "WEST", "WEST", "NORTH", "EAST"))
+
+        a = arrayOf("SOUTH", "EAST", "WEST", "NORTH")
+        testing(a, arrayOf(""))
+    }
+
+
+    @Test
+    fun optimizedDirectionTest() {
+
+        var directions = listOf("NORTH", "SOUTH")
+        var toRemove = listOf("NORTH", "SOUTH")
+
+        val testBefore = DirReduction.optimizeDirection(directions, toRemove)
+
+        println(testBefore)
+
+        assertContentEquals(emptyList(), testBefore)
+
+        directions = listOf("SOUTH", "EAST", "WEST", "NORTH")
+        toRemove = listOf("EAST", "WEST")
+
+        val test = DirReduction.optimizeDirection(directions, toRemove)
+
+        println(test)
+
+        assertContentEquals(listOf("SOUTH", "NORTH"), DirReduction.optimizeDirection(directions, toRemove))
+
 
     }
 }
