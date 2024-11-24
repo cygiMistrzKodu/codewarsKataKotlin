@@ -5,26 +5,38 @@ import java.math.BigInteger
 object Suite2 {
     fun game(n: Long): String {
 
-        val denominators: MutableList<Long> = mutableListOf()
         val numerators: MutableList<Long> = mutableListOf()
         for (rowPosition in 1L..n) {
-
             numerators.add(rowPosition)
+        }
 
+        var leastCommonMultiply = BigInteger.ONE
+        for (rowPosition in 1L..n) {
             for (columnPosition in 1L..n) {
 
-                denominators.add(rowPosition + columnPosition)
+                leastCommonMultiply = findLeastCommonMultiple(
+                    leastCommonMultiply,
+                    (rowPosition + columnPosition).toBigInteger()
+                )
 
             }
 
         }
 
-        val leastCommonMultiply = findLeastCommonMultipleMany(denominators)
-        val numeratorsMultipliers = denominators.map { leastCommonMultiply / it.toBigInteger() }.toList()
-        val numeratorSum =
-            numeratorsMultipliers.foldIndexed(BigInteger.ZERO) { index, numeratorsSum, multiplier ->
-                numeratorsSum + (numerators[index % numerators.size].toBigInteger() * multiplier)
+        var numeratorSum = BigInteger.ZERO
+        var index = 0
+        for (rowPosition in 1L..n) {
+            for (columnPosition in 1L..n) {
+
+
+                val denominator = (rowPosition + columnPosition).toBigInteger()
+                val numeratorMultiplier = leastCommonMultiply / denominator
+                numeratorSum += numerators[index % numerators.size].toBigInteger() * numeratorMultiplier
+                index++
+
             }
+
+        }
 
         val gcd = findGreatestCommonDivisor(numeratorSum, leastCommonMultiply)
 
