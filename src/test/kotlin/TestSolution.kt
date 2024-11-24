@@ -14,7 +14,7 @@ class Suite2Test {
         assertEquals("[651249, 2]", Suite2.game(807))   // tutaj bardzo długo ciekawe co poradzić ??
         assertEquals("[500000]", Suite2.game(1000))  // tutaj bardzo długo ciekawe co poradzić ??
         assertEquals("[2000000]", Suite2.game(2000))  // tutaj bardzo długo ciekawe co poradzić ??
-//        assertEquals("[651249, 2]", Suite2.game(5014))  // waiting forever
+        assertEquals("[12570098]", Suite2.game(5014))  // waiting forever
 
     }
 
