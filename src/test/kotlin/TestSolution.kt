@@ -11,10 +11,10 @@ class Suite2Test {
     fun veryBigNumbersTest() {
 
         assertEquals("[20808]", Suite2.game(204))
-        assertEquals("[651249, 2]", Suite2.game(807))   // tutaj bardzo długo ciekawe co poradzić ??
-        assertEquals("[500000]", Suite2.game(1000))  // tutaj bardzo długo ciekawe co poradzić ??
-        assertEquals("[2000000]", Suite2.game(2000))  // tutaj bardzo długo ciekawe co poradzić ??
-        assertEquals("[12570098]", Suite2.game(5014))  // waiting forever
+        assertEquals("[651249, 2]", Suite2.game(807))
+        assertEquals("[500000]", Suite2.game(1000))
+        assertEquals("[2000000]", Suite2.game(2000))
+        assertEquals("[12570098]", Suite2.game(5014))
 
     }
 
