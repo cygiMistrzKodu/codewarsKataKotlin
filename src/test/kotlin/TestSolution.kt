@@ -20,6 +20,8 @@ class Suite2Test {
 
     @Test
     fun basicTests() {
+        assertEquals("[32]", Suite2.game(8))
+        assertEquals("[81, 2]", Suite2.game(9))
         assertEquals("[800]", Suite2.game(40))
         assertEquals("[10201, 2]", Suite2.game(101))
 
