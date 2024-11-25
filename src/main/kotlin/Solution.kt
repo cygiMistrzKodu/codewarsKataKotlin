@@ -1,26 +1,14 @@
 package solution
 
-import java.math.BigInteger
+object Opstrings {
 
-object Suite2 {
-    fun game(n: Long): String {
-
-        return if (n % 2 == 0L) "[${n * n / 2}]" else "[${n * n}, 2]"
+    fun vertMirror(strng: String): String {
+        // your code
     }
-
-    fun findGreatestCommonDivisor(denominator: BigInteger, otherDenominator: BigInteger): BigInteger {
-        return if (otherDenominator == BigInteger.ZERO) denominator
-        else findGreatestCommonDivisor(otherDenominator, denominator % otherDenominator)
-
+    fun horMirror(strng: String): String {
+        // your code
     }
-
-    fun findLeastCommonMultiple(denominator: BigInteger, otherDenominator: BigInteger): BigInteger {
-        return denominator / findGreatestCommonDivisor(denominator, otherDenominator) * otherDenominator
-    }
-
-    fun findLeastCommonMultipleMany(listOfDenominators: List<Long>): BigInteger {
-        return listOfDenominators.fold(BigInteger.ONE) { lcm, denominator ->
-            findLeastCommonMultiple(lcm, denominator.toBigInteger())
-        }
+    fun oper(... , s: String): String {
+        // your code and complete ... with a function to apply to s
     }
 }
