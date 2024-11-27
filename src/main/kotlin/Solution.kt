@@ -7,20 +7,7 @@ object Opstrings {
     }
 
     fun horMirror(strng: String): String {
-
-        val delimiter = "\n"
-        val centerDivision = strng.split(delimiter).count() / 2
-
-        val firstNewLineIndex = strng.indexOf(delimiter)
-        val centerNewLineIndex =  strng.indexOf(delimiter, firstNewLineIndex + centerDivision -1)
-
-        val firstHalf = strng.substring(0,centerNewLineIndex)
-        val secondHalf = strng.substring(centerNewLineIndex)
-
-        val secondHalfReversed = secondHalf.split(delimiter).reversed().joinToString(delimiter)
-        val firstHalfReversed = firstHalf.split(delimiter).reversed().joinToString(delimiter)
-
-        return secondHalfReversed + firstHalfReversed
+        return strng.split("\n").reversed().joinToString("\n")
     }
 
     fun oper(fct: (String) -> String, s: String): String {
