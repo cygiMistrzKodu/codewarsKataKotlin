@@ -1,16 +1,10 @@
-package solution
+package kprimes
 
-object Opstrings {
+fun countKprimes(k:Int, start:Long, end:Long):LongArray {
 
-    fun vertMirror(strng: String): String {
-        return strng.split("\n").joinToString("\n") { it.reversed() }
-    }
+    return longArrayOf(1L)
+}
+fun puzzle(s:Int):Int {
 
-    fun horMirror(strng: String): String {
-        return strng.split("\n").reversed().joinToString("\n")
-    }
-
-    fun oper(fct: (String) -> String, s: String): String {
-        return fct(s)
-    }
+    return 1
 }
