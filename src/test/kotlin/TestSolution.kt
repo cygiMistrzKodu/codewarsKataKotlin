@@ -3,6 +3,7 @@ package kprimes
 
 
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.util.Arrays
 
@@ -19,6 +20,23 @@ class KPrimesTest {
         testing(Arrays.toString(countKprimes(3, 0, 100)),
             Arrays.toString(longArrayOf(8, 12, 18, 20, 27, 28, 30, 42, 44, 45, 50, 52, 63, 66, 68, 70, 75, 76, 78, 92, 98, 99)))
 
+    }
+
+    @Test
+    fun isKprimeTest() {
+        assertTrue(isKPrimeMultiFactorAllow(15,2))
+        assertTrue(isKPrimeMultiFactorAllow(4,2))
+        assertTrue(isKPrimeMultiFactorAllow(6,2))
+        assertTrue(isKPrimeMultiFactorAllow(9,2))
+    }
+
+    @Test
+    fun puzzleTest() {
+        assertEquals(16, puzzle(428))
+        assertEquals(92, puzzle(634))
+        assertEquals(68, puzzle(455))
+        assertEquals(40, puzzle(534))
+        assertEquals(16, puzzle(328))
     }
 
 }
