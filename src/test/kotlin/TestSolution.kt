@@ -1,21 +1,14 @@
-package solution
 
+
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
-class  ModSystemTest {
-
-    private fun testing(n: Int, bases: IntArray, expect: String) {
-        val actual: String = ModSystem.fromNb2Str(n, bases)
-        assertEquals(expect, actual)
-    }
+class TestKata {
     @Test
     fun basicTests() {
-        testing(779, intArrayOf(8,7,5,3), "-3--2--4--2-")
-        testing(187, intArrayOf(8,7,5,3), "-3--5--2--1-")
-        testing(259, intArrayOf(8,7,5,3), "-3--0--4--1-")
-        testing(15, intArrayOf(3, 2), "Not applicable")
-        testing(15, intArrayOf(8,6,5,3), "Not applicable")
-
+        assertEquals(listOf("A       b    ", "a       B    "), wave("a       b    "))
+        assertEquals(listOf("This is a few words", "tHis is a few words", "thIs is a few words", "thiS is a few words", "this Is a few words", "this iS a few words", "this is A few words", "this is a Few words", "this is a fEw words", "this is a feW words", "this is a few Words", "this is a few wOrds", "this is a few woRds", "this is a few worDs", "this is a few wordS"), wave("this is a few words"))
+        assertEquals(listOf<String>(), wave(""))
+        assertEquals(listOf(" Gap ", " gAp ", " gaP "), wave(" gap "))
     }
 }
