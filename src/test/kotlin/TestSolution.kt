@@ -1,16 +1,26 @@
-package altcaps
+package diophequa
+
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
+import java.util.Random
 
-
-class AltCapsTests {
+class diophanteTest {
+    @Test
+    fun test2() {
+        assertEquals("[[4, 1]]", solEquaStr(12))
+    }
 
     @Test
-    fun basicTests() {
-        assertEquals(listOf("AbCdEf", "aBcDeF"), capitalize("abcdef"))
-        assertEquals(listOf("CoDeWaRs", "cOdEwArS"), capitalize("codewars"))
-        assertEquals(listOf("AbRaCaDaBrA", "aBrAcAdAbRa"), capitalize("abracadabra"))
-        assertEquals(listOf("CoDeWaRrIoRs", "cOdEwArRiOrS"), capitalize("codewarriors"))
+    fun test3() {
+        assertEquals("[[7, 3]]", solEquaStr(13))
+    }
+
+    @Test
+    fun test11() {
+        val a =
+            "[[4505, 2252], [1503, 750], [647, 320], [505, 248], [415, 202], [353, 170], [225, 102], [153, 60], [135, 48], [103, 20], [97, 10], [95, 2]]"
+        assertEquals(a, solEquaStr(9009))
     }
 }
+
