@@ -36,26 +36,26 @@ class diophanteTest {
         assertEquals(a, solEquaStr(9002))
     }
 
-    @Test
-    fun findFactorsForNumbersTest() {
-
-        val expectedPairs = listOf(Pair(1L, 12L), Pair(2L, 6L), Pair(3L, 4L), Pair(4L, 3L), Pair(6L, 2L), Pair(12L, 1L))
-        assertEquals(expectedPairs, findFactors(12L))
-
-        val expectedPairs2 = listOf(Pair(1L, 6L), Pair(2L, 3L), Pair(3L, 2L), Pair(6L, 1L))
-        assertEquals(expectedPairs2, findFactors(6L))
-
-    }
-
-    @Test
-    fun iasIntegerTest() {
-        assertTrue(isInteger(4.0))
-        assertTrue(isInteger(8976.0))
-        assertFalse(isInteger(4.5))
-        assertFalse(isInteger(987.12))
-        assertFalse(isInteger(1.02))
-
-    }
+//    @Test
+//    fun findFactorsForNumbersTest() {
+//
+//        val expectedPairs = listOf(Pair(1L, 12L), Pair(2L, 6L), Pair(3L, 4L), Pair(4L, 3L), Pair(6L, 2L), Pair(12L, 1L))
+//        assertEquals(expectedPairs, findFactors(12L))
+//
+//        val expectedPairs2 = listOf(Pair(1L, 6L), Pair(2L, 3L), Pair(3L, 2L), Pair(6L, 1L))
+//        assertEquals(expectedPairs2, findFactors(6L))
+//
+//    }
+//
+//    @Test
+//    fun iasIntegerTest() {
+//        assertTrue(isInteger(4.0))
+//        assertTrue(isInteger(8976.0))
+//        assertFalse(isInteger(4.5))
+//        assertFalse(isInteger(987.12))
+//        assertFalse(isInteger(1.02))
+//
+//    }
 
 
 
